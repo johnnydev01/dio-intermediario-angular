@@ -12,8 +12,20 @@
             [name]="controlName" 
             [formControlName]="controlName"
         >
-        <mat-error *ngIf="validacao.hasErrorValidate(formControl, 'required')">Campo obrigatório</mat-error>
-        <mat-error *ngIf="validacao.hasErrorValidate(formControl, 'min')">O campo precisa ter no mínimo o valor 0</mat-error>
-        <mat-error *ngIf="validacao.hasErrorValidate(formControl,'max')">O campo precisa ter no máximo o valor 10</mat-error>
+        <mat-error 
+            *ngIf="validacao.hasErrorValidate(formControl, 'required')"
+        >
+            Campo obrigatório
+        </mat-error>
+        <mat-error 
+            *ngIf="validacao.hasErrorValidate(formControl, 'min')"
+        >
+            O campo precisa ter no mínimo o valor {{validacao.lengthValidate(formControl, 'min')}}
+        </mat-error>
+        <mat-error 
+            *ngIf="validacao.hasErrorValidate(formControl,'max')"
+        >
+            O campo precisa ter no máximo o valor {{validacao.lengthValidate(formControl, 'max')}}
+        </mat-error>
     </mat-form-field>
 </div>
