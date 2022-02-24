@@ -1,21 +1,21 @@
-<h1 mat-dialog-title>{{titulo}}</h1>
+<h1 mat-dialog-title>{{alerta.titulo}}</h1>
 <div mat-dialog-content>
-  <p>{{descricao}}</p>
+  <p>{{alerta.descricao}}</p>
 </div>
 <div mat-dialog-actions>
   <button 
     mat-raised-button 
     [mat-dialog-close]="true" 
     (click)="onNoClick()"
-    [color]="corBtn"
+    [color]="alerta.corBtnSucesso"
     >
-        {{btnSucesso}}
+        {{alerta.btnSucesso}}
   </button>
   <button 
     mat-raised-button
     [mat-dialog-close]="false" 
-    color="warn"
-    *ngIf="possuiBtnFechar"
->{{btnCancelar}}
+    [color]="alerta.corBtnCancelar"
+    *ngIf="alerta.possuiBtnFechar"
+>{{alerta.btnCancelar}}
 </button>
 </div>
